@@ -9,10 +9,7 @@ export const connectToDatabase = async () => {
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(process.env.MONGODB_URI!,{
-        bufferCommands: false,
-        dbName:"nistu-events",
-    }).then((mongoose) => {
+    cached.promise = mongoose.connect(process.env.MONGODB_URI!).then((mongoose) => {
       return mongoose;
     });
   }

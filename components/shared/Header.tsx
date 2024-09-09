@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       <header className="flex md:max-h-20 h-fit w-screen items-center py-3 px-2 font-poppins   bg-[#1560bd] justify-between">
-        <div className="flex space-x-2 items-center" >
+        <div className="flex space-x-2 items-center">
           <Link href="/">
             <img
               src="https://www.nist.edu/images/nist.png"
@@ -22,12 +22,13 @@ const Header = () => {
             <span>Events</span>
           </h1>
         </div>
-
-        <div className="hidden md:block">
-          <NavItems />
-        </div>
+        <SignedIn>
+          <div className="hidden md:block">
+            <NavItems />
+          </div>
+        </SignedIn>
         <div className="flex-between">
-        <SignedOut>
+          <SignedOut>
             <Button
               asChild={true}
               variant={"outline"}
@@ -40,10 +41,9 @@ const Header = () => {
           <SignedIn>
             <>
               <UserButton afterSwitchSessionUrl="/" />
+              <MobileNav />
             </>
           </SignedIn>
-         
-          <MobileNav />
         </div>
       </header>
     </>
